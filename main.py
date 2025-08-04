@@ -14,7 +14,14 @@ app = FastAPI(title="Notes API", version="1.0.0")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://srizan17.github.io", "http://localhost:3000","https://srijanbasnet.com","https://srijanbasnet.com.np"],
+    allow_origins=[
+        "https://srizan17.github.io", 
+        "http://localhost:3000",
+        "https://srijanbasnet.com",
+        "https://srijanbasnet.com.np",
+        "https://www.srijanbasnet.com.np",  # Your main website
+        "https://api.srijanbasnet.com.np",  # Your new HTTPS API
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
