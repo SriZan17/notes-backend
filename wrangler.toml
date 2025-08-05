@@ -1,0 +1,3 @@
+name = "api-worker"
+main = "main.py"
+compatibility_date = "2025-08-05"

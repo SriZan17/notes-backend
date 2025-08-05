@@ -7,6 +7,7 @@ import random
 from typing import Optional, List, Dict, Any
 import math
 import dotenv
+from workers.fastapi import create_fetch
 
 dotenv.load_dotenv()
 
@@ -202,6 +203,4 @@ async def get_notes_by_folder(folder_name: str, page: int = Query(1, ge=1), limi
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8080)
+create_fetch(app)  
