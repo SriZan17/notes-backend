@@ -204,4 +204,4 @@ async def get_notes_by_folder(folder_name: str, page: int = Query(1, ge=1), limi
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=80)
+    uvicorn.run(app, host="0.0.0.0", port=8080)
