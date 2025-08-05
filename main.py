@@ -203,4 +203,4 @@ async def get_notes_by_folder(folder_name: str, page: int = Query(1, ge=1), limi
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-create_fetch(app)  
+fetch=create_fetch(app)  
