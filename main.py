@@ -7,7 +7,6 @@ import random
 from typing import Optional, List, Dict, Any
 import math
 import dotenv
-from workers.fastapi import create_fetch
 
 dotenv.load_dotenv()
 
@@ -22,6 +21,7 @@ app.add_middleware(
         "https://srijanbasnet.com.np",
         "https://www.srijanbasnet.com.np",  # Your main website
         "https://api.srijanbasnet.com.np",  # Your new HTTPS API
+        "*",
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -203,4 +203,6 @@ async def get_notes_by_folder(folder_name: str, page: int = Query(1, ge=1), limi
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-fetch=create_fetch(app)  
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8080)
